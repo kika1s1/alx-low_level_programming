@@ -1,22 +1,16 @@
-lines (17 sloc)  212 Bytes
-   
+
 #include <stdio.h>
 
 /**
-* main - prints alphabet
-* Description: alphabet in lowercase
-* Return: 0
+ * main - Entry point
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	char a = 'a';
+	char c;
 
-	while (a <= 'z')
-	{
-		putchar(a);
-		a++;
-	}
-
+	for (c = 'a'; c <= 'z'; c++)
+		putchar(c);
 	putchar('\n');
 	return (0);
 }
