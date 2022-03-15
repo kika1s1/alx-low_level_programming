@@ -1,19 +1,20 @@
-#include "_putchar.c"
+#include "main.h"
 /**
- * main - Prints _putchar
- *
- * Return: Always 0 (Success)
- */
+ * main - entry block
+ * @void: no argument
+ * Return: 0
+ **/
 int main(void)
 {
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
+	char ermias[] = "_putchar";
+
+	int c;
+
+	for (c = 0; c < 8; c++)
+	{
+		_putchar(ermias[c]);
+	}
 	_putchar('\n');
 	return (0);
 }
+© 2022 GitHub, Inc.
