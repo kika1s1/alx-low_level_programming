@@ -13,4 +13,3 @@ int print_last_digit(int n)
 	_putchar(ln + '0');
 	return (ln);
 }
-© 2022 GitHub, Inc.
