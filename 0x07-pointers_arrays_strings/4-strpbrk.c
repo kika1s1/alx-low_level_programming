@@ -2,34 +2,31 @@
 #include <stdio.h>
 
 /**
- * _includes - function that validates if the string is in the characters
- * @str: pointer to validate.
- * @c: char to count
- * Return: 0.
- */
-int _includes(char *str, char c)
-{
-	while (*str != '\0')
-	{
-		if (*str == c)
-			return (1);
-		str += 1;
-	}
-	return (0);
-}
-
-/**
  * _strpbrk - function that searches a string for any of a set of bytes.
- * @s: is the pointer
- * @accept: it is the validation that accepts
- * Return: count.
+ *
+ * @s: string to receive
+ * @accept: bytes to accept
+ * Return: char
  */
+
 char *_strpbrk(char *s, char *accept)
 {
-	unsigned int i;
+	int j = 0;
+	int flag;
 
-	for (i = 0; *(s + i) != '\0'; i++)
-		if (_includes(accept, *(s + i)))
-			return (s  + i);
+	while (*s != '\0')
+	{
+		flag = 0;
+		while (*(accept + j) != '\0')
+		{
+			if (*s == *(accept + j))
+				flag = 1;
+			j++;
+		}
+		j = 0;
+		if (flag == 1)
+			return (s);
+		s++;
+	}
 	return (NULL);
 }

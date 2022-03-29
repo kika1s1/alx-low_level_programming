@@ -1,36 +1,33 @@
 #include "main.h"
 
 /**
- * _includes - function that validates if the string is in the characters
- * @str: pointer to validate.
- * @c: char to count
- * Return: 0.
+ * _strspn - function that gets the length of a prefix substring.
+ *
+ * @s: initial segment
+ * @accept: bytes to check
+ * Return: unsigned int
  */
-int _includes(char *str, char c)
-{
-	while (*str != '\0')
-	{
-		if (*str == c)
-			return (1);
-		str += 1;
-	}
-	return (0);
-}
 
-/**
- * _strspn - function that gets the length of a prefix substring
- * @s: is the pointer
- * @accept: it is the validation that accepts
- * Return: count.
- */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i, count = 0;
+	unsigned int cont = 0;
+	int j = 0;
+	int flag;
 
-	for (i = 0; *(s + i) != '\0'; i++)
-		if (_includes(accept, *(s + i)))
-			count++;
-		else
+	while (*s != '\0')
+	{
+		flag = 0;
+		while (*(accept + j) != '\0')
+		{
+			if (*s == *(accept + j))
+				flag = 1;
+			j += 1;
+		}
+		j = 0;
+		if (flag == 0)
 			break;
-	return (count);
+		cont += 1;
+		s++;
+	}
+	return (cont);
 }

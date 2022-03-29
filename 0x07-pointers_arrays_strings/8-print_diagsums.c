@@ -1,31 +1,32 @@
-#include "main.h"
 #include <stdio.h>
+
 /**
- * print_diagsums - function that sets the value of a pointer to a char.
- * @a: pointer int
- * @size: int size
- *
- * Return: Always 0.
+ * print_diagsums - prints the sum of the two diagonals of a square matrix
+ * of integers
+ * @a: values of the array
+ * @size: size of square
+ * Return: nothing
  */
+
 void print_diagsums(int *a, int size)
 {
-	int i, j;
-	int vd1 = 0, vd2 = 0, limit = 1;
+	int i = 0;
+	int value = 0;
+	int sum, sum2;
 
-	for (i = 0; i < size; i++)
+	sum = sum2 = 0;
+	while (i < (size * size))
 	{
-		for (j = 0; j < size; j++)
-		{
-			if (i == j)
-			{
-				vd1 += *(a + ((i * size) + j));
-			}
-			if ((size - limit) == j)
-			{
-				vd2 += *(a + ((i * size) + j));
-				limit++;
-			}
-		}
+		value = *(a + i);
+		sum = sum + value;
+		i = i + size + 1;
 	}
-	printf("%d, %d\n", vd1, vd2);
+	i = size - 1;
+	while (i < ((size * size) - 1))
+	{
+		value = *(a + i);
+		sum2 = sum2 + value;
+		i = i + (size - 1);
+	}
+	printf("%d, %d\n", sum, sum2);
 }
